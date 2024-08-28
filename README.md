@@ -1,6 +1,6 @@
 # SCOPe/CATH domain creation pipeline
 
-This pipeline processes SCOPe and CATH domain files, extracts relevant string and residue information, downloads associated PDB files, and generates PDB files by domain.
+This pipeline processes SCOPe and CATH domain files, extracts relevant domain, chain and residue information, downloads associated PDB files, and generates PDB files by domain.
 
 ## Features
 
@@ -46,7 +46,7 @@ bash allPipeline.sh <domainFile> <SCOPEorCATH> <outputDir> <nbCPUs>
 - `<domainFile>`: Path to the SCOPe or CATH domain file to be processed.
 - `<SCOPEorCATH>`: Specify "SCOPE" to process a SCOPe file or "CATH" to process a CATH file.
 - `<outputDir>`: Output directory where all generated files will be stored.
-- `<nbCPUs>`: Number of CPU cores to use for parallel processing (recommended: 4 or more).
+- `<nbCPUs>`: Number of CPU cores to use for parallel processing.
 
 ### Usage Example
 
