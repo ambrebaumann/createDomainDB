@@ -1,4 +1,4 @@
 #!/bin/bash
 
 # Usage: bash allPipeline.sh <domainFile> <SCOPEorCATH> <outputDir> <nbCPUs>
-bash allPipeline.sh test/dataTest/cathFile.txt CATH test/resultTest 4
+bash allPipeline.sh test/dataTest/scopeFile.txt SCOPE test/resultTest 4

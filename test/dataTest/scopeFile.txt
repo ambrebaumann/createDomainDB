@@ -2,7 +2,7 @@
 # SCOPe release 2.08 (2021-07-29)  [File format version 1.02]
 # http://scop.berkeley.edu/
 # Copyright (c) 1994-2021 the SCOP and SCOPe authors; see http://scop.berkeley.edu/about
-d1ux8a_	1ux8	A:	a.1.1.1	113449	cl=46456,cf=46457,sf=46458,fa=46459,dm=46460,sp=116748,px=113449
+d1ux8a_	1ux8	Z:	a.1.1.1	113449	cl=46456,cf=46457,sf=46458,fa=46459,dm=46460,sp=116748,px=113449
 d1dlwa_	1dlw	A:	a.1.1.1	14982	cl=46456,cf=46457,sf=46458,fa=46459,dm=46460,sp=46461,px=14982
 d1uvya_	1uvy	A:	a.1.1.1	100068	cl=46456,cf=46457,sf=46458,fa=46459,dm=46460,sp=46461,px=100068
 d1dlya_	1dly	A:	a.1.1.1	14983	cl=46456,cf=46457,sf=46458,fa=46459,dm=46460,sp=46462,px=14983

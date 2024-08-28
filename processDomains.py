@@ -65,6 +65,9 @@ def process_line(line, pdbFolder, domainFolder):
 
     # Check if the PDB file exists
     if os.path.exists(pdb_file_path):
+        chain_found = False
+        residue_found = False
+
         with open(pdb_file_path, 'r') as pdb:
             # Read each line of the PDB file
             for pdb_line in pdb:
@@ -72,18 +75,31 @@ def process_line(line, pdbFolder, domainFolder):
                     ch = pdb_line[21]  # Extract chain identifier from the PDB line
                     res_num = pdb_line[22:26].strip()  # Extract residue number
 
-                    # If start_pos is '/', process the entire chain
-                    if start_pos == '/':
-                        if ch == chain:
+                    if ch == chain:
+                        chain_found = True  # The chain exists in the PDB file
+
+                        # If start_pos is '/', process the entire chain
+                        if start_pos == '/':
+                            residue_found = True
                             # Append the PDB line to the output file for the chain
                             with open(domain_file_path, 'a') as chain_file:
                                 chain_file.write(pdb_line)
-                    else:
-                        # Compare residue number with start and end positions, and match the chain
-                        if custom_residue_compare(res_num, start_pos, end_pos) and ch == chain:
-                            # Append the PDB line to the output file for the specific residue range
-                            with open(domain_file_path, 'a') as chain_file:
-                                chain_file.write(pdb_line)
+                        else:
+                            # Compare residue number with start and end positions, and match the chain
+                            if custom_residue_compare(res_num, start_pos, end_pos):
+                                residue_found = True
+                                # Append the PDB line to the output file for the specific residue range
+                                with open(domain_file_path, 'a') as chain_file:
+                                    chain_file.write(pdb_line)
+
+        # Log an error if the chain was not found
+        if not chain_found:
+            logging.info(f'{line.strip()} - Chain {chain} not found in {pdb_file_path}!')
+
+        # Log an error if the residues were not found
+        elif not residue_found:
+            logging.info(f'{line.strip()} - Residues {start_pos} to {end_pos} not found in chain {chain} of {pdb_file_path}!')
+
     else:
         # Log a message if the PDB file does not exist
         logging.info(f'{line.strip()} - {pdb_file_path} does not exist!')

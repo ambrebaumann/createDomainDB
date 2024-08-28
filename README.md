@@ -51,3 +51,14 @@ bash allPipeline.sh <domainFile> <SCOPEorCATH> <outputDir> <nbCPUs>
 ### Usage Example
 
 See runTest.sh and the test folder.
+
+### Domains not processed
+
+Certain domains may not be processed due to the following reasons:
+
+- The corresponding PDB file is available only as a CIF file, not a PDB file.
+- The PDB ID is obsolete and no longer available in the PDB database.
+- The positions extracted from the domain files (SCOPe or CATH) are unusual or do not match expected formats.
+- The specified positions or chains do not exist within the PDB file.
+
+Domains affected by the first two reasons will be logged in pdb_notDownloaded.log, while those affected by the latter two reasons will be logged in unprocessed_domains.log located in the output directory. This allows for easy identification and further investigation of any issues encountered during processing.

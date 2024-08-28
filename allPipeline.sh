@@ -32,7 +32,7 @@ cat ${outputDir}/pdb${SCOPEorCATH}_toDownload.txt | xargs -I {} -P $nbCPUs aria2
 
 # Check if all files were downloaded
 ls ${outputDir}/pdb | sed 's/.pdb//' | sort | uniq > tmp.txt
-comm -23 ${outputDir}/pdb${SCOPEorCATH}_toDownload.txt tmp.txt > ${outputDir}/pdb${SCOPEorCATH}_notDownloaded.txt
+comm -23 ${outputDir}/pdb${SCOPEorCATH}_toDownload.txt tmp.txt > ${outputDir}/pdb_notDownloaded.log
 rm tmp.txt
 
 # Create domain files
