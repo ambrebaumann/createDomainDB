@@ -52,7 +52,7 @@ bash allPipeline.sh <domainFile> <SCOPEorCATH> <outputDir> <nbCPUs>
 
 See runTest.sh and the test folder.
 
-### Domains not processed
+## Domains not processed
 
 Certain domains may not be processed due to the following reasons:
 
